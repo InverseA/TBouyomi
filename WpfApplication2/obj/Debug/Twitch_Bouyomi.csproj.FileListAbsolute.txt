@@ -1,0 +1,71 @@
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\MahApps.Metro.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\Microsoft.Expression.Drawing.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\Microsoft.Speech.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\NAudio.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\NAudio.WindowsMediaFormat.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\MahApps.Metro.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\MahApps.Metro.xml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\NAudio.xml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\ShutDown.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\ShutDown.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\Twitch_Bouyomi.csprojResolveAssemblyReference.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\TwitchBouyomi 1.0.5.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\TwitchBouyomi 1.0.5.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Debug\TwitchBouyomi 1.0.5.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi 1.0.5_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi 1.0.5_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi 1.0.5.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi 1.0.5.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Debug\TwitchBouyomi 1.0.5.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\bin\Debug\TwitchBouyomi 1.1.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\TBouyomi.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\TBouyomi.pdb
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\MahApps.Metro.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\Microsoft.Speech.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\NAudio.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\MahApps.Metro.pdb
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\MahApps.Metro.xml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\NAudio.xml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\de\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\es\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\fr\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\it\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\ja\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\ko\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\Twitch_Bouyomi.csprojResolveAssemblyReference.cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\ShutDown.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TBouyomi_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TBouyomi_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\ShutDown.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TBouyomi.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Debug\TBouyomi.pdb

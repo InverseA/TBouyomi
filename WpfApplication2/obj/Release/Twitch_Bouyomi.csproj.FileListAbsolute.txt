@@ -1,0 +1,65 @@
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\Microsoft.Speech.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\Twitch_Bouyomi.csprojResolveAssemblyReference.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\TwitchBouyomi 0.8.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\TwitchBouyomi 0.8.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\TwitchBouyomi 0.8.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\MahApps.Metro.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\NAudio.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\NAudio.WindowsMediaFormat.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\System.Windows.Interactivity.dll
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\MahApps.Metro.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\MahApps.Metro.xml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\Release\NAudio.xml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\ShutDown.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\ShutDown.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 1.1.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi 1.1_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi 1.1_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 1.1.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 1.1.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi 1.1.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi 1.1.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\Release\TwitchBouyomi 1.1.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\Twitch_Bouyomi.csprojResolveAssemblyReference.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\ShutDown.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\ShutDown.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\Release\TBouyomi.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\Release\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\Release\TBouyomi.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.pdb
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\Release\TBouyomi.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\Release\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\Release\TBouyomi.pdb
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\Twitch_Bouyomi.csprojResolveAssemblyReference.cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\ShutDown.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\ShutDown.baml
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.exe
+C:\Users\Lifan\Documents\Visual Studio 2017\Projects\TBouyomi\WpfApplication2\obj\Release\TBouyomi.pdb

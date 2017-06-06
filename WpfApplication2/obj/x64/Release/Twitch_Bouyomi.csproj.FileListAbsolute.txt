@@ -1,0 +1,16 @@
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\bin\x64\Release\TwitchBouyomi 0.8.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 0.8.exe.config
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 0.8.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\Release\TwitchBouyomi 0.8.pdb
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\Login.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\MainWindow.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\App.g.cs
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi 0.8_MarkupCompile.cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi 0.8_MarkupCompile.lref
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\Login.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\MainWindow.baml
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi 0.8.g.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi.Properties.Resources.resources
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\Twitch_Bouyomi.csproj.GenerateResource.Cache
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi 0.8.exe
+C:\Users\Lifan\Documents\Visual Studio 2015\Projects\Bouyomi Beta\WpfApplication2\obj\x64\Release\TwitchBouyomi 0.8.pdb
