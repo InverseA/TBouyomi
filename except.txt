@@ -1,0 +1,9 @@
+EXCEPT
+nightbot
+vivbot
+phantombot
+wizebot
+moobot
+ankhbot
+anniebot
+revlo
