@@ -15,18 +15,30 @@ namespace Twitch_Bouyomi
         
         private void Channel_viewer()
         {
-            
+            /*
+#pragma warning disable CS0168 // 已宣告變數 'html'，但從未使用過它。
             string html;
+#pragma warning restore CS0168 // 已宣告變數 'html'，但從未使用過它。
             string url;
+#pragma warning disable CS0168 // 已宣告變數 'view_num'，但從未使用過它。
             string view_num;
+#pragma warning restore CS0168 // 已宣告變數 'view_num'，但從未使用過它。
+#pragma warning disable CS0168 // 已宣告變數 'request'，但從未使用過它。
             HttpWebRequest request;
+#pragma warning restore CS0168 // 已宣告變數 'request'，但從未使用過它。
+#pragma warning disable CS0168 // 已宣告變數 'response'，但從未使用過它。
             HttpWebResponse response;
+#pragma warning restore CS0168 // 已宣告變數 'response'，但從未使用過它。
+#pragma warning disable CS0168 // 已宣告變數 'resStream'，但從未使用過它。
             Stream resStream;
+#pragma warning restore CS0168 // 已宣告變數 'resStream'，但從未使用過它。
+#pragma warning disable CS0168 // 已宣告變數 'sr'，但從未使用過它。
             StreamReader sr;
+#pragma warning restore CS0168 // 已宣告變數 'sr'，但從未使用過它。
 
             url = "https://api.twitch.tv/kraken/streams/" + current_channel;
             //url = "https://api.twitch.tv/kraken/streams/" + current_channel;
-            /*
+            
             while (true)
             {
                 html = null;
@@ -56,7 +68,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
                 if (sr != null)
                 {

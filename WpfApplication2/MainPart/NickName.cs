@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -12,21 +9,41 @@ namespace Twitch_Bouyomi
         {
             int index;
             index = Nick_Name_Index(talker);
-            if (index >= 0)
+            try
             {
-                UpDateNickName(index, talker_NK.Replace("\n", null));
+                talker_NK.Replace("\n", "");
+                if (index >= 0)
+                {
+                    UpDateNickName(index, talker_NK.Replace("\n", null));
+                    PutSystemMsg("已更新暱稱 : " + talker + " ⇛ " + talker_NK + "\n", Brushes.Green);
+                }
+                else
+                {
+                    NickName NewNickName = new NickName(talker, talker_NK.Replace("\n", null));
+                    NickNameList.Add(NewNickName);
+                    PutSystemMsg("已新增暱稱 : " + talker + " ⇛ " + talker_NK + "\n", Brushes.Green);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                NickName NewNickName = new NickName(talker, talker_NK.Replace("\n", null));
-                NickNameList.Add(NewNickName);
+                PutSystemMsg("Error 暱稱 : " + ex.Message + "\n", Brushes.Red);
             }
+            
         }
 
         private void Delete_NickName(string talker)
         {
-            //NickName NewNickName = new NickName(talker, TransToNick(talker));
-            NickNameList.RemoveAll(x => x.GetTalker() == talker);
+            talker = talker.Replace("\n", "");
+            try
+            {
+                NickNameList.RemoveAll(x => x.GetTalker() == talker);
+                PutSystemMsg("已刪除暱稱 : " + talker + "\n", Brushes.Green);
+            }
+            catch (Exception ex)
+            {
+                PutSystemMsg("Error 暱稱 : " + ex.Message + "\n", Brushes.Red);
+            }
+            
         }
 
         private void UpDateNickName(int index, string NickName)
@@ -79,7 +96,7 @@ namespace Twitch_Bouyomi
             if (NickNameList.Count > 0)
             {
                 for (int i = 0; i < NickNameList.Count; i++)
-                    Push_A_message_to_Room(NickNameList[i].GetTalker() + " " + NickNameList[i].Get_Talker_NK() + "\n");
+                    PutSystemMsg(NickNameList[i].GetTalker() + " " + NickNameList[i].Get_Talker_NK() + "\n", Brushes.Blue);
             }
         }
     }
@@ -92,13 +109,13 @@ namespace Twitch_Bouyomi
 
         public NickName(string Talker, string Talker_NK)
         {
-            this.talker = Talker.Replace("\n",null);
-            this.talker_NK = Talker_NK.Replace("\n", null);
+            this.talker = Talker;
+            this.talker_NK = Talker_NK;
         }
 
         public void Update(string Talker_NK)
         {
-            this.talker_NK = Talker_NK.Replace("\n", null);
+            this.talker_NK = Talker_NK;
         }
         
         public string GetTalker()

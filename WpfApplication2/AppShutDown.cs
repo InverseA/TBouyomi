@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -78,10 +79,13 @@ namespace Twitch_Bouyomi
                  * Volume
                  * Rate
                  * Word_Limit
-                 * DoNotTalkFunction
-                 * AutoLogin
+                 * DoNotTalkFunction 防搶話
+                 * AUTO_LOGIN
                  * SE Volume
                  * SE Cancel
+                 * Speech_Pitch 音高
+                 * COMMAND_SPEECH !TB指令棒讀
+                 * Min_Btis_Limit 最小bits棒讀之限制
                 */
                 try
                 {
@@ -115,6 +119,13 @@ namespace Twitch_Bouyomi
 
                         FileWrite.WriteLine(Speech_Pitch);
 
+                        if (COMMAND_SPEECH == true)
+                            FileWrite.WriteLine("1");
+                        else
+                            FileWrite.WriteLine("0");
+
+                        FileWrite.WriteLine(Min_Btis_Limit);
+                        
                         FileWrite.Flush();
 
                         //FileWrite.Close();
@@ -123,7 +134,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
                 //=======================================================
 
@@ -157,7 +168,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
                 //=========================================================
 
@@ -191,7 +202,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
 
                 //=========================================================
@@ -226,7 +237,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
 
                 //=========================================================
@@ -260,7 +271,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
 
                 //=========================================================

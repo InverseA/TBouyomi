@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -41,7 +42,7 @@ namespace Twitch_Bouyomi
             }
             catch (Exception ex)
             {
-                Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                PutSystemMsg("Error 讀取SE檔案:" + ex.Message + "\n", Brushes.Red);
             }
 
 

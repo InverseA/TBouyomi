@@ -3,6 +3,7 @@ using NAudio.Wave;
 using System;
 using System.Linq;
 using System.Threading;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -33,7 +34,7 @@ namespace Twitch_Bouyomi
                         DoNotDisturb_TimerTick();
 
                         Int_WaveIn = new WaveIn();
-                        Int_WaveIn.WaveFormat = new WaveFormat(44100, 1);
+                        Int_WaveIn.WaveFormat = new WaveFormat(8000, 1);
                         Int_WaveIn.StartRecording();
                         Mic_exist = true;
                     }
@@ -41,7 +42,7 @@ namespace Twitch_Bouyomi
             }
             catch (Exception ex)
             {
-                Push_A_message_to_Room("Error:" + ex.Message + "錄音裝置錯誤?\n");
+                PutSystemMsg("Error:" + ex.Message + "錄音裝置錯誤?\n", Brushes.Red);
             }
         }
     }

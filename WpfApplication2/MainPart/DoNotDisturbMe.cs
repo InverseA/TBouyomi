@@ -1,15 +1,14 @@
 ﻿using NAudio.CoreAudioApi;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace Twitch_Bouyomi
 {
     public partial class MainWindow
     {
+        DispatcherTimer timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(0.033) };
+        //DispatcherTimer Disturb_State_timer = new DispatcherTimer() { Interval = TimeSpan.FromSeconds(6) };
         //========================DoNotTalk Function===============================
 
         private void DoNotDisturb_TimerTick()

@@ -10,6 +10,7 @@ namespace Twitch_Bouyomi
 {
     public partial class MainWindow
     {
+        //private Paragraph paragraph;
         //private Brush red; 
         private void Push_A_message_to_Room(string msg)
         {
@@ -34,6 +35,29 @@ namespace Twitch_Bouyomi
                     */
                 }));
             }
+        }
+
+        public void PutSystemMsg(string _Msg, SolidColorBrush _color)
+        {
+            if (IRC_textbox.Dispatcher.CheckAccess())
+            {
+                TextRange _TxtRange = new TextRange(SystemMsg.Document.ContentEnd, SystemMsg.Document.ContentEnd);
+                _TxtRange.Text = _Msg;
+                _TxtRange.ApplyPropertyValue(TextElement.ForegroundProperty, _color);
+                SystemMsg.ScrollToEnd();
+            }
+            else
+            {
+                SystemMsg.Dispatcher.BeginInvoke((Action)(() =>
+                {
+                    TextRange _TxtRange = new TextRange(SystemMsg.Document.ContentEnd, SystemMsg.Document.ContentEnd);
+                    _TxtRange.Text = _Msg;
+                    _TxtRange.ApplyPropertyValue(TextElement.ForegroundProperty, _color);
+                    SystemMsg.ScrollToEnd();
+                }));
+            }
+
+                
         }
     }
 }

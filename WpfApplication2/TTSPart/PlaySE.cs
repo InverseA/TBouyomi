@@ -1,5 +1,6 @@
 ﻿using NAudio.Wave;
 using System;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -43,7 +44,7 @@ namespace Twitch_Bouyomi
             }
             catch (Exception ex)
             {
-                Push_A_message_to_Room("synth.SelectVoice錯誤 Error:" + ex.Message + "\n");
+                PutSystemMsg("SE Error:" + ex.Message + "\n", Brushes.Red);
 
                 return -1;
             }

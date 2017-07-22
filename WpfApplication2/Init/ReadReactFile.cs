@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -49,7 +50,7 @@ namespace Twitch_Bouyomi
             }
             catch (Exception ex)
             {
-                Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                PutSystemMsg("Error 讀取回應檔案:" + ex.Message + "\n", Brushes.Red);
             }
 
             FileRead.Dispose(); //還回memory

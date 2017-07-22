@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -64,17 +65,16 @@ namespace Twitch_Bouyomi
                     {
                         IRCRoom.Abort();
                         irc.close_irc();
-                        Push_A_message_to_Room("\n***改變頻道聊天室至 " + current_channel + " \n");
+                        PutSystemMsg("\n***改變頻道聊天室至 " + current_channel + " \n", Brushes.LightGray);
                     }
-                    GC.Collect();
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("Error:" + ex.Message + "\n");
+                    PutSystemMsg("Error:" + ex.Message + "\n", Brushes.Red);
                 }
                 StartSession(); //開始IRC的工作
             }
-
+            
         }
     }
 }

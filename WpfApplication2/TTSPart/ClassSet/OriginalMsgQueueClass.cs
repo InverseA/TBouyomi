@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 
 namespace Twitch_Bouyomi
 {
@@ -19,8 +20,14 @@ namespace Twitch_Bouyomi
     class OrignalMsg_object
     {
         private bool _IsPremium = false;
+        private bool _IsSub = false;
+        private bool _IsRepeat = false;
+        private bool _IsMod = false;
+        private bool _IsStaff = false;
+        private bool _IsBroadcaster = false;
         private string _talker = null;  //SetInfo()處理完後，為全英文小寫
-        private string _msg = null;
+        private string _msg = "";
+        private string _SubMsg = null;
         private string _BitsTotal = null;
 
         public OrignalMsg_object(string Talker, string Msg, bool IsPremium)
@@ -55,7 +62,27 @@ namespace Twitch_Bouyomi
         {
             return _BitsTotal;
         }
-        
+
+        public bool IsMod()
+        {
+            return _IsMod;
+        }
+
+        public bool IsRepeat()
+        {
+            return _IsRepeat;
+        }
+
+        public bool IsSub()
+        {
+            return _IsSub;
+        }
+
+        public string GetSubMsg()
+        {
+            return _SubMsg;
+        }
+
         public void Speech_Msg_By_command()
         {
             if (_IsPremium)
@@ -140,6 +167,7 @@ namespace Twitch_Bouyomi
             }
         }
 
+
         //Class OrignalMsg_object 內部方法======
         private string WhoTalk(string _OriMsg)
         {
@@ -186,6 +214,7 @@ namespace Twitch_Bouyomi
                 ReProc = new RepeatStringDetect(_temp);
                 if (ReProc.Repeated)
                 {
+                    _IsRepeat = true;
                     _temp = ReProc.AfterProc;
                     return _temp;
                 }
@@ -336,6 +365,10 @@ namespace Twitch_Bouyomi
             {
                 msg = msg.Replace("111", "");
             }
+            while (msg.Contains("<3"))
+            {
+                msg = msg.Replace("<3", "愛心");
+            }
 
             return msg;
         }
@@ -350,48 +383,119 @@ namespace Twitch_Bouyomi
             //@badges=staff/1,bits/1000;bits=100;color=;display-name=dallas;emotes=;id=b34ccfc7-4977-403a-8a94-33c6bac34fb8;mod=0;room-id=1337;subscriber=0;turbo=1;user-id=1337;user-type=staff :ronni!ronni@ronni.tmi.twitch.tv PRIVMSG #dallas :cheer100
             string _tag_info = null;
             string _temp = null;
+            string _bits_temp = null;
             string[] _split_temp = null;
+            //string _badges = null;
             int _index = 0;
             int _count = 0;
 
-            _split_temp = _OriMsg.Split('@');
-            _tag_info = _split_temp[1]; //儲存TAG訊息
-            _temp = _split_temp[2];     //儲存Talker與留言訊息
-
-            _index = _temp.IndexOf('.');
-            _talker = _temp.Remove(_index).ToLower(); //儲存發送留言者
-            _index = _temp.IndexOf(':') + 1;
-            _msg = _temp.Substring(_index); //儲存留言訊息
-
-            
-            _count = 3;
-            while(_count < _split_temp.Length)
+            if(_OriMsg.Contains("PRIVMSG"))
             {
-                _msg = string.Concat(_msg, "@"+_split_temp[_count]);
-                _count++;
-            }
-            if (_tag_info.Contains("bits="))
-            {
-                _index = _tag_info.IndexOf("bits=");
-                _index += 5;
-                _temp = _tag_info.Substring(_index);
+                _split_temp = _OriMsg.Split('@');
+                _tag_info = _split_temp[1]; //儲存TAG訊息
+                _temp = _split_temp[2];     //儲存Talker與留言訊息
 
-                _count = 0;
-                while (_temp[_count] != ';')
+                _index = _temp.IndexOf('.');
+                _talker = _temp.Remove(_index).ToLower(); //儲存發送留言者
+                _index = _temp.IndexOf(':') + 1;
+                _msg = _temp.Substring(_index); //儲存留言訊息
+
+
+                _count = 3;
+                while (_count < _split_temp.Length)
                 {
+                    _msg = string.Concat(_msg, "@" + _split_temp[_count]);
                     _count++;
                 }
-                _BitsTotal = _temp.Remove(_count);
+                if (_tag_info.Contains("bits="))
+                {
+                    _index = _tag_info.IndexOf("bits=");
+                    _index += 5;
+                    _temp = _tag_info.Substring(_index);
 
-                _IsPremium = true;
+                    _count = 0;
+                    while (_temp[_count] != ';')
+                    {
+                        _bits_temp += _temp[_count];
+                        _count++;
+                    }
+                    _BitsTotal = _temp.Remove(_count);
+
+                    if (Int32.Parse(_BitsTotal) >= MainWindow.Get_Btis_Limit())
+                    {
+                        _IsPremium = true;
+                    }
+                }
+                if (_tag_info.Contains("mod="))
+                {
+                    _index = _tag_info.IndexOf("mod=");
+                    _index += 4;
+                    if (_tag_info[_index] == '1')
+                    {
+                        _IsMod = true;
+                    }
+                }
             }
-
-            if (_IsPremium)
+            else if (_OriMsg.Contains("USERNOTICE"))
             {
+                _split_temp = _OriMsg.Split(':');
+                _tag_info = _split_temp[0];
+                if (_split_temp.Length == 2)
+                    _msg = "";
+                else
+                {
+                    _msg = _split_temp[2];
+                    _count = 3;
+                    while(_count < _split_temp.Length)
+                    {
+                        _msg = string.Concat(_msg, ":", _split_temp[_count]);
+                        _count++;
+                    }
+                }
+                if (_tag_info.Contains("msg-id="))
+                {
+                    _index = _tag_info.IndexOf("msg-id=");
+                    _index += 7;
+                    _temp = _tag_info.Substring(_index);
+                    _count = 0;
+                    string _Msgid_string = null;
+                    while (_temp[_count] != ';')
+                    {
+                        _Msgid_string += _temp[_count];
+                        _count++;
+                    }
+                    if(_Msgid_string == "sub" || _Msgid_string == "resub")
+                    {
+                        _IsSub = true;
+                        _IsPremium = true;
 
+                        _index = _tag_info.IndexOf("system-msg=");
+                        _index += 11;
+                        _temp = _tag_info.Substring(_index);
+                        _count = 0;
+                        while(_temp[_count] != ';')
+                        {
+                            _SubMsg += _temp[_count];
+                            _count++;
+                        }
+                        _SubMsg = _SubMsg.Replace("\\s", " ");
+
+                        _index = _tag_info.IndexOf("display-name");
+                        _index += 12;
+                        _temp = _tag_info.Substring(_index);
+                        _count = 0;
+                        while (_temp[_count] != ';')
+                        {
+                            _talker += _temp[_count];
+                            _count++;
+                        }
+                    }
+                }
             }
             
+            
+            
+            
         }
-
     }
 }

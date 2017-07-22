@@ -1,9 +1,14 @@
-﻿namespace Twitch_Bouyomi
+﻿using System.Windows.Media;
+
+namespace Twitch_Bouyomi
 {
     public partial class MainWindow
     {
-        private void Msg_Command_Proc(string talker, string msg)
+        private void Msg_Command_Proc(OrignalMsg_object package)
         {
+            string msg = package.GetMsg();
+            string talker = package.GetTalker();
+
             //============= NickName Command Called by listener ============
             if (msg.StartsWith("!暱稱 "))
             {
@@ -46,17 +51,17 @@
                         }
                         else
                         {
-                            Push_A_message_to_Room(current_channel + " : 教育失敗...請注意格式使否有誤\n");
+                            PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                         }
                     }
                     else
                     {
-                        Push_A_message_to_Room(current_channel + " : 教育失敗...請注意格式使否有誤\n");
+                        PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                     }
                 }
                 else
                 {
-                    Push_A_message_to_Room(current_channel + " : 教育失敗...請注意格式使否有誤\n");
+                    PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                 }
             }//End if(教育)
             if (msg.StartsWith("!忘卻 "))
@@ -94,17 +99,17 @@
                         }
                         else
                         {
-                            Push_A_message_to_Room(current_channel + " : 自動回覆設定失敗...請注意格式使否有誤\n");
+                            PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                         }
                     }
                     else
                     {
-                        Push_A_message_to_Room(current_channel + " : 自動回覆設定失敗...請注意格式使否有誤\n");
+                        PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                     }
                 }
                 else
                 {
-                    Push_A_message_to_Room(current_channel + " : 自動回覆設定失敗...請注意格式使否有誤\n");
+                    PutSystemMsg("有人試圖調教棒讀醬，但失敗啦！(注意格式是否有誤)\n", Brushes.MediumOrchid);
                 }
             }//End if(回覆)
             if (msg.StartsWith("!刪除回覆 ") && talker == current_channel.ToLower())
@@ -138,7 +143,7 @@
                 }
                 else
                 {
-                    Push_A_message_to_Room(current_channel + " : 自動回覆設定失敗...請注意格式使否有誤\n");
+                    PutSystemMsg("忽略帳號命令錯誤：注意格式是否有誤\n", Brushes.MediumOrchid);
                 }
             }//End if(教育)
             if (msg.StartsWith("!取消忽略 ") && talker == current_channel.ToLower())
@@ -155,8 +160,8 @@
             }//End if(忘卻)
 
             //=======Notice==========
-            /*
-            if (msg.StartsWith("!提醒 "))
+            
+            if (msg.StartsWith("!提醒 ") && package.IsMod())
             {
                 int index = 0;
                 string temp = null;
@@ -166,13 +171,11 @@
 
                 if (temp != "")
                 {
-                    if (DISTURB_STATE)
-                    {
-                        SpeechTheText(temp);
-                    }
+                    NoticeUsr();
+                    PutSystemMsg("⚔Mod提醒訊息 : " + temp + "\n", Brushes.LimeGreen);
                 }
             }
-            */
+            
             //======= MOD ===========
             /*
             if (msg.StartsWith("!SE12"))

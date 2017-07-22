@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -10,33 +7,30 @@ namespace Twitch_Bouyomi
     {
         private void Add_Except(string name)
         {
-            //int index;
-            string temp;
-            
-            Except NewExcept = new Except(name.Replace("\n", null));
-            ExceptList.Add(NewExcept);
-
-            if (msg_reader != null && msg_reader.IsAlive)
+            name = name.Replace("\n", "");
+            try
             {
-                temp = "已忽略帳號 : " + name.Replace("\n", "");
-                SpeechQueue_Push("已忽略帳號", "MSG", false);
-                Push_A_message_to_Room(temp + "\n");
-                msg_reader.Interrupt();
+                Except NewExcept = new Except(name);
+                ExceptList.Add(NewExcept);
+                PutSystemMsg("已新增棒讀忽略帳號 ： " + name + "\n", Brushes.Green);
+            }
+            catch(Exception ex)
+            {
+                PutSystemMsg("Error 忽略帳號 : " + ex.Message + "\n", Brushes.Red);
             }
         }
         
         private void Delete_Except(string name)
         {
-            string temp;
-
-            ExceptList.RemoveAll(x => x.GetName() == name);
-
-            if (msg_reader != null && msg_reader.IsAlive)
+            name = name.Replace("\n", "");
+            try
             {
-                temp = "已取消忽略 : ";
-                SpeechQueue_Push("已忽略帳號", "MSG", false);
-                Push_A_message_to_Room(temp + "\n");
-                msg_reader.Interrupt();
+                ExceptList.RemoveAll(x => x.GetName() == name);
+                PutSystemMsg("已移除棒讀忽略帳號 ： " + name + "\n", Brushes.Green);
+            }
+            catch (Exception ex)
+            {
+                PutSystemMsg("Error 忽略帳號 : " + ex.Message + "\n", Brushes.Red);
             }
         }
 
@@ -58,32 +52,8 @@ namespace Twitch_Bouyomi
             }
             return -1;
         }
-        /*
-        private string Except_String_Replace(string msg)
-        {
-            if (ExceptList.Count != 0)
-            {
-                if (msg != null)
-                {
-                    for (int i = 0; i < ExceptList.Count; i++)
-                    {
-                        if ((ExceptList[i].Getname() != null) && (ExceptList[i].Get_name_ed() != null))
-                            msg = msg.Replace(ExceptList[i].Getname(), ExceptList[i].Get_name_ed());
-                    }
-                }
-            }
-
-            return msg;
-        }
-        */
     }
-
     
-
-
-
-
-
 class Except
     {
         private string name = null;
@@ -92,22 +62,10 @@ class Except
         {
             this.name = name.Replace("\n", null);
         }
-        /*
-        public void Update(string name_ed)
-        {
-            this.name_ed = name_ed.Replace("\n", null);
-        }
-        */
 
         public string GetName()
         {
             return this.name;
         }
-        /*
-        public string Get_name_ed()
-        {
-            return this.name_ed;
-        }
-        */
     }
 }

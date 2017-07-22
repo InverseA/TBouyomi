@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Speech.Synthesis;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -18,6 +19,13 @@ namespace Twitch_Bouyomi
             int _Speech_Rate = Speech_Rate;
 
             string msg = Package.GetMsg();
+
+            msg = msg.Replace("<", "");
+            msg = msg.Replace(">", "");
+            msg = msg.Replace("\"", " ");
+            msg = msg.Replace("\\", " ");
+            msg = msg.Replace("/", " ");
+
             if (Package.IsJapanese())
             {
                 _Speech_Rate = _Speech_Rate - 2;
@@ -29,7 +37,7 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("synth.SelectVoice錯誤(日文) Error:" + ex.Message + "\n");
+                    PutSystemMsg("synth.SelectVoice錯誤(日文) Error:" + ex.Message + "\n", Brushes.Red);
                 }
             }
             else
@@ -42,20 +50,16 @@ namespace Twitch_Bouyomi
                 }
                 catch (Exception ex)
                 {
-                    Push_A_message_to_Room("synth.SelectVoice錯誤(中文) Error:" + ex.Message + "\n");
+                    PutSystemMsg("synth.SelectVoice錯誤(中文) Error:" + ex.Message + "\n", Brushes.Red);
                 }
             }
             
             synth.Volume = Speech_Volume;
             if (!Package.IsPremium())
             {
-                if (TTS_object_queue.Count >= 10)            //依照Queue中的量控制說話速率
+                if (TTS_object_queue.Count >= 5)
                 {
-                    synth.Rate = 10;
-                }
-                else if (TTS_object_queue.Count >= 5)
-                {
-                    synth.Rate = _Speech_Rate + 5;
+                    synth.Rate = _Speech_Rate + 3;
                     if (synth.Rate > 10)
                     {
                         synth.Rate = 10;
@@ -79,7 +83,7 @@ namespace Twitch_Bouyomi
             }
             catch (Exception ex)
             {
-                Push_A_message_to_Room("synth.Speak()錯誤 Error:" + ex.Message + "\n");
+                PutSystemMsg("synth.Speak()錯誤 Error:" + ex.Message + "\n" + msg + "\n", Brushes.DarkRed);
             }
             
             synth.Dispose();

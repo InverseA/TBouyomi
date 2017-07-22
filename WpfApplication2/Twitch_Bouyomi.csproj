@@ -7,7 +7,7 @@
     <ProjectGuid>{37A5332E-D0A6-4640-B0D1-9CFBB0246FFD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwitchBouyomi</RootNamespace>
+    <RootNamespace>Twitch_Bouyomi</RootNamespace>
     <AssemblyName>TBouyomi</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -27,7 +27,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.3.1.0</ApplicationVersion>
+    <ApplicationVersion>1.5.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -136,12 +136,16 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="View\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\AdvancedSetting.xaml.cs">
+      <DependentUpon>AdvancedSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppShutDown.cs" />
     <Compile Include="Channel_Change.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="MainPart\Except.cs" />
     <Compile Include="MainPart\ReAct.cs" />
     <Compile Include="Init\ReadExceptFile.cs" />
@@ -170,27 +174,32 @@
     <Compile Include="TTSPart\ClassSet\OriginalMsgQueueClass.cs" />
     <Compile Include="TTSPart\ClassSet\TTSQueueClass.cs" />
     <Compile Include="TTSPart\PlaySE.cs" />
+    <Compile Include="TTSPart\Premium_Msg_Proc.cs" />
     <Compile Include="TTSPart\SpeechText.cs" />
     <Compile Include="TTSPart\TTS_Part.cs" />
-    <Page Include="Login.xaml">
+    <Page Include="View\AdvancedSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="MainPart\Channal_Viewer_Count.cs" />
     <Compile Include="TTSPart\Irc.cs" />
     <Compile Include="TTSPart\IrcSession.cs" />
-    <Compile Include="Login.xaml.cs">
+    <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -230,6 +239,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="splash.jpg" />
     <Resource Include="TB.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -311,7 +321,6 @@
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -21,7 +21,7 @@ namespace Twitch_Bouyomi
                         Int_WaveIn.StopRecording();
                         Int_WaveIn.StartRecording();
                     }
-                    catch(Exception e)
+                    catch(Exception)
                     {
 
                     }

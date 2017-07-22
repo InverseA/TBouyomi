@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace Twitch_Bouyomi
 {
@@ -11,27 +8,27 @@ namespace Twitch_Bouyomi
         private void Add_ReAct(string word, string word_ra)
         {
             int index;
-            string temp;
-
             index = ReAct_Index(word);
-
-            if (index >= 0)
+            try
             {
-                UpDateReAct(index, word_ra.Replace("\n", null));
+                word_ra = word_ra.Replace("\n", "");
+                if (index >= 0)
+                {
+                    UpDateReAct(index, word_ra.Replace("\n", null));
+                    PutSystemMsg("已更新自動回覆 : \n" + word + " ⇛ " + word_ra + "\n", Brushes.Green);
+                }
+                else
+                {
+                    ReAct NewReAct = new ReAct(word, word_ra.Replace("\n", null));
+                    ReActList.Add(NewReAct);
+                    PutSystemMsg("已新增自動回覆 : \n" + word + " ⇛ " + word_ra + "\n", Brushes.Green);
+                }
             }
-            else
+            catch(Exception ex)
             {
-                ReAct NewReAct = new ReAct(word, word_ra.Replace("\n", null));
-                ReActList.Add(NewReAct);
+                PutSystemMsg("Error 自動回覆 : " + ex.Message + "\n", Brushes.Red);
             }
-
-            if (msg_reader != null && msg_reader.IsAlive)
-            {
-                temp = "自動回覆新增 : " + word.Replace("\n", "") + " > " + word_ra.Replace("\n", "");
-                //msg_queue.Enqueue("TextFormCommand!" + current_channel + "@BouyomiMessage:" + "已學習字詞\n");
-                Push_A_message_to_Room(temp + "\n");
-                //msg_reader.Interrupt();
-            }
+            
         }
 
         private void UpDateReAct(int index, string word_ra)
@@ -41,16 +38,15 @@ namespace Twitch_Bouyomi
 
         private void Delete_ReAct(string word)
         {
-            string temp;
-
-            ReActList.RemoveAll(x => x.GetWord() == word);
-
-            if (msg_reader != null && msg_reader.IsAlive)
+            word = word.Replace("\n", "");
+            try
             {
-                temp = "刪除自動回覆 : " + word.Replace("\n", "");
-                //msg_queue.Enqueue("TextFormCommand!" + current_channel + "@BouyomiMessage:" + temp + "\n");
-                Push_A_message_to_Room(temp + "\n");
-                //msg_reader.Interrupt();
+                ReActList.RemoveAll(x => x.GetWord() == word);
+                PutSystemMsg("已刪除自動回覆 : " + word + "\n", Brushes.Green);
+            }
+            catch (Exception ex)
+            {
+                PutSystemMsg("Error 自動回覆 : " + ex.Message + "\n", Brushes.Red);
             }
         }
 
@@ -101,13 +97,13 @@ namespace Twitch_Bouyomi
 
         public ReAct(string Word, string word_ra)
         {
-            this.word = Word.Replace("\n", null);
-            this.word_ra = word_ra.Replace("\n", null);
+            this.word = Word;
+            this.word_ra = word_ra;
         }
 
         public void Update(string word_ra)
         {
-            this.word_ra = word_ra.Replace("\n", null);
+            this.word_ra = word_ra;
         }
 
         public string GetWord()

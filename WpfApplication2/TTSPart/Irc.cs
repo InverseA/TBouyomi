@@ -41,7 +41,9 @@ namespace Twitch_Bouyomi
             channel = channel.ToLower();
             if (DEBUG_MODE)
             {
+#pragma warning disable CS0162 // 偵測到不會執行到的程式碼
                 outputStream.WriteLine("JOIN #" + DEBUG_CHANNEL);
+#pragma warning restore CS0162 // 偵測到不會執行到的程式碼
             }
             else
                 outputStream.WriteLine("JOIN #" + channel);
@@ -52,7 +54,9 @@ namespace Twitch_Bouyomi
         {
             if (DEBUG_MODE)
             {
+#pragma warning disable CS0162 // 偵測到不會執行到的程式碼
                 sendMessage(":" + userName + "!" + userName + "@" + userName + ".tmi.twitch.tv PRIVMSG #" + DEBUG_CHANNEL + " : " + message);
+#pragma warning restore CS0162 // 偵測到不會執行到的程式碼
             }
             else
                 sendMessage(":" + userName + "!" + userName + "@" + userName + ".tmi.twitch.tv PRIVMSG #" + userName + " : " + message);

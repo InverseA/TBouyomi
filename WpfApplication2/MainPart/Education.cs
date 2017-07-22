@@ -1,30 +1,31 @@
-﻿namespace Twitch_Bouyomi
+﻿using System;
+using System.Windows.Media;
+
+namespace Twitch_Bouyomi
 {
     public partial class MainWindow
     {
         private void Add_Education(string word, string word_ed)
         {
             int index;
-            string temp;
-
             index = Education_Index(word);
-
-            if(index >= 0)
+            try
             {
-                UpDateEducation(index, word_ed.Replace("\n", null));
+                word_ed = word_ed.Replace("\n", "");
+                if (index >= 0)
+                {
+                    UpDateEducation(index, word_ed);
+                }
+                else
+                {
+                    Education NewEdication = new Education(word, word_ed);
+                    EducationList.Add(NewEdication);
+                }
+                PutSystemMsg("已記住教育 : \n" + word + " ⇛ " + word_ed + "\n", Brushes.Green);
             }
-            else
+            catch (Exception ex)
             {
-                Education NewEdication = new Education(word, word_ed.Replace("\n", null));
-                EducationList.Add(NewEdication);
-            }
-            
-            if (msg_reader != null && msg_reader.IsAlive)
-            {
-                temp = "已學習字詞 : " + word.Replace("\n", "") + " = " + word_ed.Replace("\n", "");
-                SpeechQueue_Push("已學習字詞", "MSG", false);
-                Push_A_message_to_Room(temp + "\n");
-                msg_reader.Interrupt();
+                PutSystemMsg("Error 教育 : " + ex.Message + "\n", Brushes.Red);
             }
         }
 
@@ -35,16 +36,14 @@
 
         private void Delete_Education(string word)
         {
-            string temp;
-
-            EducationList.RemoveAll(x => x.GetWord() == word);
-
-            if (msg_reader != null && msg_reader.IsAlive)
+            try
             {
-                temp = "已忘卻字詞 : " + word.Replace("\n", "");
-                SpeechQueue_Push("已學習字詞", "MSG", false);
-                Push_A_message_to_Room(temp + "\n");
-                msg_reader.Interrupt();
+                EducationList.RemoveAll(x => x.GetWord() == word);
+                PutSystemMsg("已忘記教育 : " + word + "\n", Brushes.Green);
+            }
+            catch (Exception ex)
+            {
+                PutSystemMsg("Error 教育 : " + ex.Message + "\n", Brushes.Red);
             }
         }
 
@@ -65,20 +64,41 @@
             return -1;
         }
 
-        private string Education_String_Replace(string msg)
+        private string Education_String_Replace(string msg, bool _Ispremium)
         {
+            if (msg == null || msg == "")
+                return msg;
             if(EducationList.Count != 0)
             {
-                if (msg != null)
+                if (!_Ispremium)
                 {
                     for (int i = 0; i < EducationList.Count; i++)
                     {
-                        if( (EducationList[i].GetWord() != null) && (EducationList[i].Get_Word_ed() != null) )
+                        if ((EducationList[i].GetWord() != null) && (EducationList[i].Get_Word_ed() != null))
                             msg = msg.Replace(EducationList[i].GetWord(), EducationList[i].Get_Word_ed());
                     }
                 }
-            }
+                else
+                {
+                    for (int i = 0; i < EducationList.Count; i++)
+                    {
+                        while (msg.Contains(EducationList[i].GetWord()))
+                        {
+                            string _word = EducationList[i].GetWord();
+                            int _index_front = msg.IndexOf(_word) + _word.Length;
+                            int _index_rear = _index_front;
+                            while (char.IsNumber(msg[_index_rear]))
+                            {
+                                _index_rear++;
+                            }
+                            msg= msg.Remove(_index_front,
+                                        _index_rear - _index_front);
+                            msg = msg.Replace(_word, EducationList[i].Get_Word_ed());
 
+                        }
+                    }
+                }
+            }
             return msg;
         }
     }
@@ -90,13 +110,13 @@
 
         public Education(string Word, string Word_ed)
         {
-            this.word = Word.Replace("\n", null);
-            this.word_ed = Word_ed.Replace("\n", null);
+            this.word = Word;
+            this.word_ed = Word_ed;
         }
 
         public void Update(string Word_ed)
         {
-            this.word_ed = Word_ed.Replace("\n", null);
+            this.word_ed = Word_ed;
         }
 
         public string GetWord()
