@@ -10,22 +10,27 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Diagnostics;
 using System.Windows.Navigation;
-using MahApps.Metro.Controls;
-using System.Threading;
+using System.Windows.Shapes;
 
-namespace Twitch_Bouyomi
+namespace Twitch_Bouyomi.View
 {
     /// <summary>
-    /// AdvancedSetting.xaml 的互動邏輯
+    /// CheersControl.xaml 的互動邏輯
     /// </summary>
-    public partial class AdvancedSetting
+    public partial class CheersControl
     {
-        public AdvancedSetting()
+        public CheersControl()
         {
             InitializeComponent();
+
+
+            Btis_Limit_slider.Value = MainWindow.Get_Btis_Limit();
+        }
+
+        private void Btis_Limit_slider_change(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow.MinBitsSet(Btis_Limit_box.Text);
         }
     }
 }

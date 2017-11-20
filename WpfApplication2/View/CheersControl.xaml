@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Twitch_Bouyomi.View.CheersControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+      mc:Ignorable="d" 
+      Height="496" Width="488"
+             Background="#FF323232">
+
+    <Grid>
+
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="468" Margin="10,10,0,0" Foreground="#FFC7C7C7" FontSize="14">
+            <Run Text="當Twitcco進入小奇點模式時，除了小奇點、訂閱的訊息之外，"/><LineBreak/>
+            <Run Text="不會進行任何的棒讀行為。"/><LineBreak/>
+        </TextBlock>
+
+        <Label x:Name="Btis_Limit_Label" Content="小奇點模式時&#xA;最小Bits數量" HorizontalAlignment="Left" Margin="13,58,0,0" Width="104" 
+            Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" SnapsToDevicePixels="True" Height="55" VerticalAlignment="Top"/>
+        <TextBox x:Name="Btis_Limit_box" HorizontalAlignment="Left" Margin="127,71,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=Btis_Limit_slider}" Width="35"
+            Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
+        <Slider x:Name="Btis_Limit_slider" HorizontalAlignment="Left" Margin="180,74,0,0" Width="280" Height="25" VerticalAlignment="Top"
+            Minimum="1" Maximum="100" Value="1" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="Btis_Limit_slider_change" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="280" Margin="13,113,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="超過設定的門檻才會進行小奇點留言棒讀。"/></TextBlock>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Twitch_Bouyomi.View.Live2DControl"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+      mc:Ignorable="d" Height="496" Width="488"
+              Background="#FF323232">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="468" Margin="10,10,0,0" Foreground="#FFC7C7C7" FontSize="14">
+            <Run Text="當按下Twitcco的【😉】按鈕時，此功能可以顯示出動態角色的視窗，"/><LineBreak/>
+            <Run Text="並讓角色的嘴巴動作對應到Twitcco的棒讀，或是麥克風的音量大小。"/><LineBreak/>
+        </TextBlock>
+
+        <ComboBox x:Name="Live2DFolderCombobox" HorizontalAlignment="Left" Margin="132,157,0,0" Width="199" SelectionChanged="Live2D_CharaChange" Height="27" VerticalAlignment="Top"/>
+        <Label x:Name="Live2DCharaName" Content="Live2D角色選擇：" HorizontalAlignment="Left" Margin="8,157,0,0" Width="124" 
+            Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" SnapsToDevicePixels="True" Height="27" VerticalAlignment="Top"/>
+        <CheckBox x:Name="AutoUseLive2D_AtStart" Content="Twitcco啟動時自動開啟Live2D角色" Foreground="LightGray" Margin="10,62,218,0" Checked="AutoUseLive2D_AtStart_Check" Unchecked="AutoUseLive2D_AtStart_Unchecked" Focusable="False" VerticalAlignment="Top" Height="31" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <CheckBox x:Name="ChangeLive2DMode" Content="讓Live2D角色對嘴自己" Foreground="LightGray" Margin="11,98,297,0" Checked="ChangeLive2DMode_1" Unchecked="ChangeLive2DMode_2" Focusable="False" VerticalAlignment="Top" Height="31" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <Label x:Name="Live2DChara_Exist" Content="" HorizontalAlignment="Left" Margin="336,157,0,0" Width="97" 
+            Foreground="Red" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" SnapsToDevicePixels="True" Height="27" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="342" Margin="34,122,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="使動態角色的嘴巴對應到麥克風的音量。"/></TextBlock>
+        <Label x:Name="MicExist" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="183,98,0,0" Width="112" FontSize="14" Foreground="Red"/>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,58 @@
+﻿<Controls:MetroWindow x:Class="Twitch_Bouyomi.ShutDown"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterOwner"
+        Title="關閉確認" Height="167" Width="409" WindowStyle="ToolWindow" BorderThickness="1" ResizeMode="NoResize"
+        NonActiveGlowBrush="#FF666666" TitleForeground="#FFE8E8E8" BorderBrush="#FF004D9B" WindowTitleBrush="#FF323232" NonActiveWindowTitleBrush="#FF323232" Background="#FF1D1D1D">
+        
+
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="#191919"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#4d4d4d" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black" />
+                                <Setter Property="Foreground" Value="#292929"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#FF323232">
+        <Label x:Name="label" Content="離開圖奇子棒讀？" Foreground="LightGray" HorizontalAlignment="Center" Margin="100,28,99,0" VerticalAlignment="Top" Width="202" HorizontalContentAlignment="Center" FontSize="14"/>
+        <Button x:Name="button_Sure" Style="{StaticResource BaseButtonStyle}" Content="確定" HorizontalAlignment="Center" Height="35" Margin="66,80,215,0" VerticalAlignment="Top" Width="120" FontSize="14" HorizontalContentAlignment="Center" Click="ShutDown_Sure"/>
+        <Button x:Name="button_Cancel" Style="{StaticResource BaseButtonStyle}" Content="取消" HorizontalAlignment="Center" Height="35" Margin="215,80,66,0" VerticalAlignment="Top" Width="120" FontSize="14" HorizontalContentAlignment="Center" Click="ShutDown_Cancel"/>
+
+    </Grid>
+</Controls:MetroWindow>

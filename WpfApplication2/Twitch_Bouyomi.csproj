@@ -103,6 +103,24 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="Google.Apis, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.30.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.30.0\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.30.0\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.30.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.30.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.30.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.YouTube.v3, Version=1.30.0.1035, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.YouTube.v3.1.30.0.1035\lib\net45\Google.Apis.YouTube.v3.dll</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.5.0.23, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -113,6 +131,9 @@
     </Reference>
     <Reference Include="NAudio, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NAudio.1.8.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -140,44 +161,148 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Module\Live2D\CharaChange.cs" />
+    <Compile Include="Module\Live2D\LocalServer.cs" />
+    <Compile Include="Module\Live2D\Read_All_Live2D_Chara.cs" />
+    <Compile Include="Module\MainPart\Youtube\YoutubeChat.cs" />
+    <Compile Include="Module\MainWindow.cs" />
+    <Compile Include="ViewModule\MainWindow_Interface.cs" />
+    <Compile Include="View\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddAct.xaml.cs">
+      <DependentUpon>AddAct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddEducation.xaml.cs">
+      <DependentUpon>AddEducation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddExcept.xaml.cs">
+      <DependentUpon>AddExcept.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AdvancedSetting.xaml.cs">
       <DependentUpon>AdvancedSetting.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppShutDown.cs" />
-    <Compile Include="Channel_Change.cs" />
+    <Compile Include="Module\MainPart\AppShutDown.cs" />
+    <Compile Include="Module\MainPart\ChannelChange.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="MainPart\Except.cs" />
-    <Compile Include="MainPart\ReAct.cs" />
-    <Compile Include="Init\ReadExceptFile.cs" />
-    <Compile Include="Init\ReadReactFile.cs" />
-    <Compile Include="MainPart\RepeatStringDetect.cs" />
-    <Compile Include="Init\DoNotDisturbInit.cs" />
-    <Compile Include="MainPart\DoNotDisturbMe.cs" />
-    <Compile Include="MainPart\Education.cs" />
-    <Compile Include="Init\GC_T.cs" />
-    <Compile Include="TTSPart\ClassSet\Speech_win7.cs" />
-    <Compile Include="TTSPart\ClassSet\Speech_win8.cs" />
-    <Compile Include="TTSPart\MsgCommandProc.cs" />
-    <Compile Include="TTSPart\Msg_proc.cs" />
-    <Compile Include="MainPart\NickName.cs" />
-    <Compile Include="Push_msg_to_Room.cs" />
-    <Compile Include="Init\ReadEducationFile.cs" />
-    <Compile Include="Init\ReadLoginFile.cs" />
-    <Compile Include="Init\ReadNickNameFile.cs" />
-    <Compile Include="Init\ReadPersonalSetting.cs" />
-    <Compile Include="Init\ScanSEFolder.cs" />
-    <Compile Include="MainPart\SE.cs" />
-    <Compile Include="ShutDown.xaml.cs">
+    <Compile Include="Module\MainPart\Except.cs" />
+    <Compile Include="Module\MainPart\ReAct.cs" />
+    <Compile Include="Module\Init\RWExceptFile.cs" />
+    <Compile Include="Module\Init\RWReactFile.cs" />
+    <Compile Include="Module\MainPart\RepeatStringDetect.cs" />
+    <Compile Include="Module\Init\DoNotDisturbInit.cs" />
+    <Compile Include="Module\MainPart\DoNotDisturbMe.cs" />
+    <Compile Include="Module\MainPart\Education.cs" />
+    <Compile Include="Module\Init\GC_T.cs" />
+    <Compile Include="Module\TTSPart\ClassSet\Speech_win7.cs" />
+    <Compile Include="Module\TTSPart\ClassSet\Speech_win8.cs" />
+    <Compile Include="Module\TTSPart\MsgCommandProc.cs" />
+    <Compile Include="Module\TTSPart\Msg_proc.cs" />
+    <Compile Include="Module\MainPart\NickName.cs" />
+    <Compile Include="Module\MainPart\Push_msg_to_Room.cs" />
+    <Compile Include="Module\Init\RWEducationFile.cs" />
+    <Compile Include="Module\Init\RWLoginFile.cs" />
+    <Compile Include="Module\Init\RWNickNameFile.cs" />
+    <Compile Include="Module\Init\RWPersonalSetting.cs" />
+    <Compile Include="Module\Init\ScanSEFolder.cs" />
+    <Compile Include="Module\MainPart\SE.cs" />
+    <Compile Include="View\CheersControl.xaml.cs">
+      <DependentUpon>CheersControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataView_Education.xaml.cs">
+      <DependentUpon>DataView_Education.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataView_IgnoreAccount.xaml.cs">
+      <DependentUpon>DataView_IgnoreAccount.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataView_ReAct.xaml.cs">
+      <DependentUpon>DataView_ReAct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataView_SE.xaml.cs">
+      <DependentUpon>DataView_SE.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeleteConfirm.xaml.cs">
+      <DependentUpon>DeleteConfirm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DeviceSetting.xaml.cs">
+      <DependentUpon>DeviceSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Experiment.xaml.cs">
+      <DependentUpon>Experiment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Live2DControl.xaml.cs">
+      <DependentUpon>Live2DControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ParameterInquire.xaml.cs">
+      <DependentUpon>ParameterInquire.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShutDown.xaml.cs">
       <DependentUpon>ShutDown.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainPart\SubGroup.cs" />
-    <Compile Include="TTSPart\ClassSet\OriginalMsgQueueClass.cs" />
-    <Compile Include="TTSPart\ClassSet\TTSQueueClass.cs" />
-    <Compile Include="TTSPart\PlaySE.cs" />
-    <Compile Include="TTSPart\Premium_Msg_Proc.cs" />
-    <Compile Include="TTSPart\SpeechText.cs" />
-    <Compile Include="TTSPart\TTS_Part.cs" />
+    <Compile Include="Module\MainPart\SubGroup.cs" />
+    <Compile Include="Module\TTSPart\ClassSet\OriginalMsgQueueClass.cs" />
+    <Compile Include="Module\TTSPart\ClassSet\TTSQueueClass.cs" />
+    <Compile Include="Module\TTSPart\PlaySE.cs" />
+    <Compile Include="Module\TTSPart\Premium_Msg_Proc.cs" />
+    <Compile Include="Module\TTSPart\SpeechText.cs" />
+    <Compile Include="Module\TTSPart\TTS_Part.cs" />
+    <Page Include="View\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddAct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEducation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddExcept.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AdvancedSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\BouyomiSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CheersControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataView_Education.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataView_IgnoreAccount.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataView_ReAct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DataView_SE.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeleteConfirm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DeviceSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Experiment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Live2DControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,9 +318,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainPart\Channal_Viewer_Count.cs" />
-    <Compile Include="TTSPart\Irc.cs" />
-    <Compile Include="TTSPart\IrcSession.cs" />
+    <Compile Include="Module\MainPart\Channal_Viewer_Count.cs" />
+    <Compile Include="Module\TTSPart\Irc.cs" />
+    <Compile Include="Module\TTSPart\IrcSession.cs" />
+    <Compile Include="View\BouyomiSetting.xaml.cs">
+      <DependentUpon>BouyomiSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -203,7 +331,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ShutDown.xaml">
+    <Page Include="View\ParameterInquire.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShutDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -321,6 +453,7 @@
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

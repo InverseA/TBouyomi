@@ -13,18 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Windows.Navigation;
-using MahApps.Metro.Controls;
+using System.IO;
 
-namespace Twitch_Bouyomi
+namespace Twitch_Bouyomi.View
 {
     /// <summary>
     /// Login.xaml 的互動邏輯
     /// </summary>
     /// 
-    public partial class Login : MetroWindow
+    public partial class Login
     {
         private IrcClient irc;
         string msg;
+        private string channel_Account = null;
 
         public Login()
         {
@@ -35,42 +36,45 @@ namespace Twitch_Bouyomi
                 Auto_Login_check.IsChecked = false;
         }
 
-        private void Channel_set_ok(object sender, RoutedEventArgs e)
+        private void AccountSave(object sender, RoutedEventArgs e)
         {
-            Account_X.Content = "";
             OAuth_ID_X.Content = "";
-
-            if (Channel_Account.Text == "")
-            {
-                Account_X.Content = "X";
-            }
-            else if (OAuth.Text == "")
-            {
+            if (OAuth_pswd.Password == "")
                 OAuth_ID_X.Content = "X";
-            }
             else
             {
-                irc = new IrcClient("irc.twitch.tv", 6667, Channel_Account.Text.ToLower(), OAuth.Text);
+                irc = new IrcClient("irc.twitch.tv", 6667, "twitcco", OAuth_pswd.Password);
                 msg = irc.readMessage();
                 if (msg.Contains("Login authentication failed"))
                 {
-                    Login_Wrong.Content = "登入失敗，請檢查帳號或Oauth是否有誤。";
+                    Login_Wrong.Content = "請檢查Oauth是否有誤。";
                     irc.close_irc();
                 }
                 else
+                {
+                    int _index = 0;
+                    _index = msg.IndexOf(":tmi.twitch.tv");
+                    _index += 19;
+                    msg = msg.Substring(19);
+                    _index = msg.IndexOf(":Welcome");
+                    _index--;
+                    msg = msg.Remove(_index);
+
+                    channel_Account = msg;
                     Result();
+                }
             }
+        }
+
+        private void MainWindowClose(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.DialogResult = false;
         }
 
         private void Result()
         {
             irc.close_irc();
             this.DialogResult = true;
-        }
-
-        private void MainWindowClose(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            this.DialogResult = false;
         }
 
         private void GetOAuth(object sender, RequestNavigateEventArgs e)
@@ -94,5 +98,7 @@ namespace Twitch_Bouyomi
         {
             MainWindow.SetAutoLogin(false);
         }
+
+        public string Channel_Account { get => channel_Account; set => channel_Account = value; }
     }
 }

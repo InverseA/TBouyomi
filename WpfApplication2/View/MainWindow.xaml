@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Twitch_Bouyomi"
+        xmlns:local="clr-namespace:Twitch_Bouyomi.View"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         WindowStartupLocation="Manual"
@@ -13,7 +13,7 @@
         GlowBrush="#FF004D9B"
         SaveWindowPosition="True"
         TitleCaps ="False"
-        Title="TBouyomi" 
+        Title="Twitcco 1.7α : 尚未登入"
                       Width="800" MinWidth="800" MaxWidth="800" 
                       BorderThickness="1" Margin="0" Closing="MainWindowClose" 
                       Height="500" MinHeight="500" MaxHeight="500" ResizeMode="CanMinimize" 
@@ -57,102 +57,63 @@
         </Style>
     </Window.Resources>
 
-    <!-- 自己參考寫出的ButtonStyle
-    <Window.Resources>
-        <Style x:Key="FlatButton" TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#191919" />
-            <Setter Property="Foreground" Value="LightGray" />
-
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Name="border" BorderThickness="1" >
-                        </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#828282" />
-                                <Setter Property="Foreground" Value="White" />
-                            </Trigger>
-                            <Trigger Property="IsPressed" Value="True">
-                                <Setter Property="Background" Value="Black" />
-                                <Setter Property="Foreground" Value="#292929" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
--->
-
     <Grid Background="#FF323232" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="469" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition Height="53*" MinHeight="50" MaxHeight="50"/>
             <RowDefinition Height="416*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="443*"/>
-            <ColumnDefinition Width="349*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="175*"/>
         </Grid.ColumnDefinitions>
 
 
-
-        <Button x:Name="Change_channel" Style="{StaticResource BaseButtonStyle}" Content="🔑設定頻道" HorizontalAlignment="Left" Margin="10,6,0,4" Width="98"
-                    Click="change_channel" FontSize="14" />
-
-        <Label x:Name="current_ID" Content="目前頻道ID" Foreground="LightGray" HorizontalAlignment="Left" 
-               HorizontalContentAlignment="Center" 
-               VerticalContentAlignment="Center"
-               Margin="113,6,0,4" Width="90" FontSize="14" MinWidth="90" MaxWidth="90"/>
-        <Label x:Name="current_ID_text" Content="尚未登入" Margin="203,6,34,4" Foreground="#FF499BFF" 
-               HorizontalContentAlignment="Left" 
-               VerticalContentAlignment="Center" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="ChannelChange" Style="{StaticResource BaseButtonStyle}" Content="🔑" HorizontalAlignment="Left" Margin="0,7,0,3" Width="79"
+                    Click="ChannelChange_Click" FontSize="14" />
 
 
-        <Separator Height="14" Margin="0,44,10,0" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Separator Height="14" Margin="0,44,5,0" VerticalAlignment="Top" Grid.RowSpan="2" Visibility="Hidden"/>
         <!--<RichTextBox x:Name="IRC_textRoom" Grid.Column="1" Margin="10,10,10,50" Grid.RowSpan="2" Background="Black" Foreground="#FFCBCBCB" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" FontSize="14" Block.LineHeight="2" Width="328" SnapsToDevicePixels="True" IsReadOnly="True" FontWeight="Medium" AllowDrop="False">
             <FlowDocument AllowDrop="True">
                 <Paragraph Padding="0,5,0,1"/>
             </FlowDocument>
         </RichTextBox>
         -->
-        <Label x:Name="WPF_Volume" Content="音量" HorizontalAlignment="Left" Margin="30,55,0,0" Grid.Row="1" Width="39"
-               Foreground="LightGray" VerticalAlignment="Top" Height="26" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14"/>
-        <Slider x:Name="WPF_Volume_slider" Margin="124,58,0,0" Grid.Row="1" Width="309" Height="22" VerticalAlignment="Top"
-                Minimum="0" Maximum="100" Value="100" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="WPF_DragLeave_Volume_Slider" Focusable="False" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Padding="0" FontSize="14"/>
-        <Slider x:Name="WPF_Rate_slider" HorizontalAlignment="Left" Margin="124,88,0,0" Grid.Row="1" Width="309" Height="23" VerticalAlignment="Top"
-                Minimum="-10" Maximum="10" Value="1" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="WPF_DragLeave_Rate_Slider" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="14"/>
-        <Label x:Name="WPF_Rate" Content="速度" HorizontalAlignment="Left" Margin="30,86,0,0" Grid.Row="1" Width="39" 
-        	Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="27" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="WPF_Volume_slider_box" HorizontalAlignment="Left" Margin="69,55,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Value, ElementName=WPF_Volume_slider}" Width="39" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="26" IsReadOnly="True" AllowDrop="False" Focusable="False" HorizontalContentAlignment="Center" Background="#FF323232" Foreground="#FFE6E6E6" BorderThickness="0" FontSize="14" FontFamily="Microsoft JhengHei UI"/>
-        <TextBox x:Name="WPF_Rate_slider_box" HorizontalAlignment="Left" Margin="73,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Value, ElementName=WPF_Rate_slider}" Width="35"
-        	Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="26" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI"/>
         <!--<Button x:Name="Set_the_change" Content="套用設定(Apply)" Margin="362,361,0,0" Grid.Row="1" Click="Set_the_change_Click" HorizontalAlignment="Left" Width="141" Height="48" VerticalAlignment="Top"/>-->
-        <TextBlock x:Name="Design" HorizontalAlignment="Left" Height="15" Margin="10,394,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" Foreground="LightGray" FontSize="10"><Run Text="Design "/><Hyperlink Foreground="#FF499BFF" NavigateUri="http://twitchbouyomi.blogspot.tw/2016/03/twitchtwitchbouyomi.html" TextDecorations="Underline" RequestNavigate="Visit_TB_Blog"><Run Text="InverseA"/></Hyperlink></TextBlock>
-        <ProgressBar x:Name="Mic_volume" HorizontalAlignment="Left" Height="2" Margin="0,416,-7,0" VerticalAlignment="Top" Width="799" Foreground="#FF115F00" Background="#FF323232" BorderBrush="#FF323232" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="Device_comboBox" HorizontalAlignment="Left" Height="32" Margin="124,15,0,0" Grid.Row="1" VerticalAlignment="Top" Width="309" Focusable="False" BorderBrush="Black" Background="#FF494949" Foreground="#FFC1C1C1" FontSize="14" FontFamily="Microsoft JhengHei UI"/>
-        <Label x:Name="Mic_Device" Content="麥克風裝置" HorizontalAlignment="Left" Margin="10,15,0,0" Grid.Row="1" Width="109" 
-        	Foreground="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top" FontSize="14"/>
-        <TextBox x:Name="enter_command" Grid.Column="1" Margin="0,373,1,3" Grid.Row="1" TextWrapping="Wrap" Background="#FF0E0E0E" KeyDown="keyin_command" Text="發話框" 
-            Foreground="#FF505050" FontSize="14" Padding="4" GotFocus="keyin_Gotfocus" LostFocus ="keyin_LostFocus" SelectionBrush="#FF003F7A" CaretBrush="White" BorderBrush="{x:Null}" Controls:ControlsHelper.FocusBorderBrush="{x:Null}" Controls:ControlsHelper.MouseOverBorderBrush="{x:Null}" VerticalContentAlignment="Center" FontFamily="Microsoft JhengHei UI"
+        <ComboBox x:Name="Device_comboBox" HorizontalAlignment="Left" Height="32" Margin="121,5,0,0" Grid.Row="1" VerticalAlignment="Top" Width="309" Focusable="False" BorderBrush="Black" Foreground="#FFC1C1C1" FontSize="14" FontFamily="Microsoft JhengHei UI" Visibility="Hidden"/>
+        <Label x:Name="Mic_Device" Content="麥克風裝置" HorizontalAlignment="Left" Margin="7,5,0,0" Grid.Row="1" Width="109" 
+        	Foreground="LightGray" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Top" FontSize="14" Visibility="Hidden"/>
+        <Label x:Name="EnterCommand_Label" Content="輸入訊息" Grid.Column="1" HorizontalAlignment="Left" Height="44" Margin="1,372,-4,0" Grid.Row="1" VerticalAlignment="Top" Width="353"
+               Background="#FF0E0E0E" Foreground="DimGray" VerticalContentAlignment="Center" FontSize="14" Padding="15,0,0,0"/>
+        <TextBox x:Name="enter_command" Grid.Column="1" Margin="0,372,0,3" Grid.Row="1" TextWrapping="Wrap" Background="{x:Null}" KeyDown="keyin_command" Text=""
+            Foreground="LightGray" FontSize="14" Padding="4" GotFocus="keyin_Gotfocus" LostFocus ="keyin_LostFocus" SelectionBrush="#FF003F7A" CaretBrush="White" BorderBrush="{x:Null}" Controls:ControlsHelper.FocusBorderBrush="{x:Null}" Controls:ControlsHelper.MouseOverBorderBrush="{x:Null}" VerticalContentAlignment="Center" FontFamily="Microsoft JhengHei UI"
                  />
-        <Button x:Name="Speak_Pause" Style="{StaticResource BaseButtonStyle}" Content="切換至Cheer棒讀模式" Margin="270,362,0,10" Click="Cheer_Mode_Click" HorizontalAlignment="Left" Width="163" Grid.Row="1" FontSize="14"/>
+        <Button x:Name="Speak_Mana" Style="{StaticResource BaseButtonStyle}" Content="一般模式" Margin="79,7,0,3" Click="Cheer_Mode_Click" HorizontalAlignment="Left" Width="364" FontSize="14" Grid.ColumnSpan="2" HorizontalContentAlignment="Center"
+                Padding="0,0,20,0"/>
         <!--<Label x:Name="Viewer_num" Content="● Offline" HorizontalAlignment="Left" Height="31" Margin="416,10,0,0" VerticalAlignment="Top" Width="105" FontSize="15" Foreground="#FF870000" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
         -->
-        <TextBox x:Name="IRC_textbox" Grid.Column="1" Margin="0,4,1,44" TextWrapping="Wrap" Text="" Background="#FF0E0E0E" 
-                 Foreground="#FFA4A4A4" IsReadOnly="True" FontSize="14" MaxLines="150" SelectionBrush="#FF003F7A" BorderBrush="{x:Null}" Grid.RowSpan="2" AllowDrop="False" Controls:ControlsHelper.MouseOverBorderBrush="{x:Null}" Controls:ControlsHelper.FocusBorderBrush="{x:Null}" FontFamily="Microsoft JhengHei UI"/>
+        <RichTextBox x:Name="IRC_textbox" Grid.Column="1" Margin="0,4,-3,44" Background="#FF0E0E0E" 
+                 Foreground="#FFA4A4A4" IsReadOnly="True" FontSize="14" SelectionBrush="#FF003F7A" BorderBrush="{x:Null}" Grid.RowSpan="2" AllowDrop="False" Controls:ControlsHelper.MouseOverBorderBrush="{x:Null}" Controls:ControlsHelper.FocusBorderBrush="{x:Null}" FontFamily="Microsoft JhengHei UI" HorizontalAlignment="Left" Width="353">
+        <FlowDocument>
+            <Paragraph LineHeight="1">
+            </Paragraph>
+        </FlowDocument>
+        </RichTextBox>
+
         <Button x:Name="AdvanceSetting_button" Style="{StaticResource BaseButtonStyle}" Content="⚙"  HorizontalAlignment="Left" Margin="238,-32,0,48" Width="37" Click="Open_AdSetWindow" BorderBrush="{x:Null}" Focusable="False" Grid.Column="1" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Separator Height="14" Margin="29,367,30,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1"/>
         <Label x:Name="SystemMessage" Content="棒讀醬訊息" Foreground="LightGray" HorizontalAlignment="Left" 
             HorizontalContentAlignment="Center" 
             VerticalContentAlignment="Center"
-            Margin="10,112,0,267" Width="90" FontSize="14" MinWidth="90" MaxWidth="90" Grid.Row="1"/>
-        <RichTextBox x:Name="SystemMsg"  HorizontalAlignment="Left" Height="211" Margin="30,146,0,0" Grid.Row="1" VerticalAlignment="Top" Width="403" FontSize="14" FontFamily="Microsoft JhengHei UI" AllowDrop="False" BorderBrush="{x:Null}" Controls:ControlsHelper.MouseOverBorderBrush="Transparent" Controls:ControlsHelper.FocusBorderBrush="Transparent" Background="#FF1B1B1B" IsReadOnly="True">
+            Margin="0,39,0,340" Width="433" FontSize="14" MinWidth="90" MaxWidth="90" Grid.Row="1" Visibility="Hidden"/>
+        <RichTextBox x:Name="SystemMsg"  HorizontalAlignment="Left" Grid.Row="1" Width="444" FontSize="14" FontFamily="Microsoft JhengHei UI" AllowDrop="False" BorderBrush="{x:Null}" Controls:ControlsHelper.MouseOverBorderBrush="Transparent" Controls:ControlsHelper.FocusBorderBrush="Transparent" Background="#FF1B1B1B" IsReadOnly="True" Height="416" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <FlowDocument>
                 <Paragraph LineHeight="1">
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
+        <Button x:Name="Live2DFace" Style="{StaticResource BaseButtonStyle}" Content="😉"  HorizontalAlignment="Left" Margin="202,-32,0,48" Width="37" Click="OpenLive2DWindow_Click" BorderBrush="{x:Null}" Focusable="False" Grid.Column="1" FontSize="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <ProgressBar x:Name="Mic_volume" HorizontalAlignment="Left" Height="2" Margin="0,416,-7,0" VerticalAlignment="Top" Width="799" Foreground="#FF115F00" Background="#FF323232" BorderBrush="#FF323232" Grid.Row="1" Grid.ColumnSpan="2"/>
 
         <!--<TextBox x:Name="Viewer_num" HorizontalAlignment="Left" Margin="426,5,0,0" TextWrapping="Wrap" Text="● OffLine" Width="93" Foreground="#FFAE0000" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="36" IsReadOnly="True" FontSize="16" FontWeight="Bold" Grid.ColumnSpan="2" SelectionBrush="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}" BorderThickness="0"/>-->
     </Grid>

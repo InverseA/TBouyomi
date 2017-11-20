@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,22 +11,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Diagnostics;
 using System.Windows.Navigation;
-using MahApps.Metro.Controls;
-using System.Threading;
+using System.Windows.Shapes;
 
-namespace Twitch_Bouyomi
+namespace Twitch_Bouyomi.View
 {
     /// <summary>
-    /// AdvancedSetting.xaml 的互動邏輯
+    /// ParameterInquire.xaml 的互動邏輯
     /// </summary>
-    public partial class AdvancedSetting
+    public partial class ParameterInquire
     {
-        public AdvancedSetting()
+        public ParameterInquire()
         {
             InitializeComponent();
+
         }
+
     }
 }

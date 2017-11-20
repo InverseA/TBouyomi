@@ -11,21 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Windows.Navigation;
-using MahApps.Metro.Controls;
-using System.Threading;
 
-namespace Twitch_Bouyomi
+namespace Twitch_Bouyomi.View
 {
     /// <summary>
-    /// AdvancedSetting.xaml 的互動邏輯
+    /// AddAct.xaml 的互動邏輯
     /// </summary>
-    public partial class AdvancedSetting
+    public partial class AddAct
     {
-        public AdvancedSetting()
+        public AddAct()
         {
             InitializeComponent();
+        }
+
+        private void AddNewReact(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
         }
     }
 }

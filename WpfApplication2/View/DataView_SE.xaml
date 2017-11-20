@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Twitch_Bouyomi.View.DataView_SE"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+      mc:Ignorable="d" Height="450" Width="488"
+              Background="#FF323232">
+
+    <UserControl.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="#191919"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#4d4d4d" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black" />
+                                <Setter Property="Foreground" Value="#292929"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <ListView  x:Name="SEViewList" HorizontalAlignment="Left" Height="374" Margin="10,66,0,0" VerticalAlignment="Top" Width="468"
+                   ItemsSource="{Binding}" Background="#FF252525" BorderBrush="Black" SelectionChanged="SEViewList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="關鍵字" DisplayMemberBinding="{Binding _word}" Width="450"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="276" Margin="12,20,0,0" Foreground="#FFC7C7C7" FontSize="14">
+            <Run Text="特殊音效檔案存放於SE資料夾中，"/><LineBreak/>
+            <Run Text="當Twitcco啟動時會自動讀取。"/>
+        </TextBlock>
+        <Button Style="{StaticResource BaseButtonStyle}" Content="重新讀取" HorizontalAlignment="Left" Height="40" Margin="383,15,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="14" Foreground="#FFC7C7C7" Click="ReReadSE"/>
+        <Button Style="{StaticResource BaseButtonStyle}" Content="試聽" HorizontalAlignment="Left" Height="40" Margin="288,15,0,0" VerticalAlignment="Top" Width="90" FontWeight="Normal" FontSize="14" Foreground="#FFC7C7C7" Click="PreviewSE"/>
+
+    </Grid>
+</UserControl>

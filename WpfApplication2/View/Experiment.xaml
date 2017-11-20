@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="Twitch_Bouyomi.View.Experiment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+      mc:Ignorable="d" Height="496" Width="488"
+              Background="#FF323232">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="26" Width="468" Margin="10,10,0,0" Foreground="#FFC7C7C7" FontSize="14">
+            <Run Text="除非你瞭解這些功能的用途，否則一般不會建議去更動它。"/><LineBreak/>
+        </TextBlock>
+        <CheckBox x:Name="DoNotDisturb_checkBox" Content="啟用防搶話功能" Foreground="LightGray" Margin="10,41,345,0" Checked="HandleDoNotTalkCheck" Unchecked="HandleDoNotTalkUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="298" Margin="32,68,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="偵測到麥克風的音量大於預設背景噪音時，"/><LineBreak/>
+            <Run Text="短時間內暫停棒讀功能。"/>
+        </TextBlock>
+        <CheckBox x:Name="AutoSlowMode" Content="自動進入慢動作模式" Foreground="LightGray" Margin="10,109,318,0" Checked="AutoSlowModeCheck" Unchecked="AutoSlowModeUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="358" Margin="32,136,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="只有當聊天室留言進入快速發生的狀況時，"/><LineBreak/><Run Text="讓Twitcco每隔一段時間隨機的挑選留言來棒讀，"/></TextBlock>
+        <CheckBox x:Name="ForceSlowMode" Content="強制慢動作模式" Foreground="LightGray" Margin="10,178,318,0" Checked="ForceSlowModeCheck" Unchecked="ForceSlowModeUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="358" Margin="32,204,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="Twitcco總是每隔一段時間，才隨機挑選留言來棒讀，"/><LineBreak/><Run Text="(適合在大人數的實況台使用)"/></TextBlock>
+        <CheckBox x:Name="SECancel" Content="特殊音效相互取消" Foreground="LightGray" Margin="10,248,318,0" Checked="SECancelCheck" Unchecked="SECancelUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="358" Margin="32,274,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="發生時間較晚的音效，會去中斷目前正在播放的音效。"/></TextBlock>
+        <CheckBox x:Name="SEOnly" Content="特殊音效模式" Foreground="LightGray" Margin="10,316,318,0" Checked="SEOnlyCheck" Unchecked="SEOnlyUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="358" Margin="32,342,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="關閉任何語音棒讀的活動，只使用音效功能。"/></TextBlock>
+        <CheckBox x:Name="MODSE" Content="允許MOD強制開啟特殊音效功能" Foreground="LightGray" Margin="10,380,183,0" Checked="AllowMODSECheck" Unchecked="AllowMODSEUnchecked" Focusable="False" VerticalAlignment="Top" Height="34" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
+            />
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="80" Width="426" Margin="32,406,0,0" Foreground="#FFC7C7C7" FontSize="14"><Run Text="允許MOD使用指令：!SE16、!SE30"/><LineBreak/><Run Text="來暫時開放音效功能16、30秒。"/><LineBreak/><Run Text="這段時間會讓Twitcco從慢動作、小奇點等模式中強制播放音效。"/></TextBlock>
+
+    </Grid>
+</UserControl>

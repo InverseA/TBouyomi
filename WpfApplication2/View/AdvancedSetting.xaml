@@ -5,42 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Twitch_Bouyomi"
-        mc:Ignorable="d"
+                      xmlns:tabData="clr-namespace:Twitch_Bouyomi.View"
+                      mc:Ignorable="d"
         WindowStartupLocation="CenterOwner"
-        Title="⚙進階設定" Height="360" Width="500" Background="#FF323232" WindowTitleBrush="#FF323232" NonActiveWindowTitleBrush="#FF323232" ResizeMode="NoResize" BorderBrush="#FF004D9B" FontSize="14" TitleForeground="LightGray">
-    <Grid Background="#FF323232">
-        <Border BorderBrush="#FF636363" BorderThickness="1" Margin="13,18,0,0" Height="205" VerticalAlignment="Top" HorizontalAlignment="Left" Width="470" SnapsToDevicePixels="True"/>
-        <Label x:Name="WordNum_Limit" Content="棒讀字數限制" HorizontalAlignment="Left" Margin="11,90,0,0" Width="103" 
-            Foreground="LightGray" HorizontalContentAlignment="Right" Height="25" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="14" SnapsToDevicePixels="True"/>
-        <TextBox x:Name="WordNum_Limitslider_box" HorizontalAlignment="Left" Margin="125,91,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=WordNum_Limit_slider}" Width="35"
-            Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <Slider x:Name="WordNum_Limit_slider" HorizontalAlignment="Left" Margin="178,94,0,0" Width="280" Height="25" VerticalAlignment="Top"
-            Minimum="5" Maximum="60" Value="20" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="WPF_DragLeave_NumLimit_Slider" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" FontSize="14"/>
-        <Label x:Name="SE_Volume_L" Content="音效音量" HorizontalAlignment="Left" Margin="24,61,0,0" Width="90" 
-            Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="25" VerticalAlignment="Top" FontSize="14" SnapsToDevicePixels="True"/>
-        <TextBox x:Name="SE_Volume_box" HorizontalAlignment="Left" Margin="125,61,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=SE_Volume_slider}" Width="35"
-            Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <Slider x:Name="SE_Volume_slider" HorizontalAlignment="Left" Margin="178,64,0,0" Width="280" Height="25" VerticalAlignment="Top"
-            Minimum="0" Maximum="100" Value="100" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="SE_Volume_slider_ValueChanged" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" FontSize="14"/>
-        <Label x:Name="Pitch_num" Content="棒讀音高" HorizontalAlignment="Left" Margin="24,31,0,0" Width="90" 
-            Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="25" VerticalAlignment="Top" FontSize="14" SnapsToDevicePixels="True"/>
-        <TextBox x:Name="Pitch_num_box" HorizontalAlignment="Left" Margin="125,31,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=Pitch_num_slider}" Width="35"
-            Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <Slider x:Name="Pitch_num_slider" HorizontalAlignment="Left" Margin="178,34,0,0" Width="280" Height="25" VerticalAlignment="Top"
-            Minimum="-10" Maximum="10" Value="0" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="Pitch_ValueChanged" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" FontSize="14"/>
-        <CheckBox x:Name="SE_Cancel" Content="啟用SE關鍵字互相取消" HorizontalAlignment="Left" Height="22" Margin="27,163,0,0" VerticalAlignment="Top" Width="178" Foreground="LightGray" VerticalContentAlignment="Center" Checked="SE_Cancel_Check" Unchecked="SE_Cancel_unCheck" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <CheckBox x:Name="Speech_By_Command" Content="只有在使用指令 !TB 時才會棒讀" HorizontalAlignment="Left" Height="23" Margin="27,190,0,0" VerticalAlignment="Top" Width="227" Foreground="LightGray" VerticalContentAlignment="Center" Checked="Command_Speech_Check" Unchecked="Command_Speech_unCheck" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <Border BorderBrush="#FF636363" BorderThickness="1" Margin="13,245,0,0" Height="70" VerticalAlignment="Top" HorizontalAlignment="Left" Width="470" SnapsToDevicePixels="True"/>
-        <Label x:Name="Bouyomi_DoNotTalk" Content="實驗性質功能" HorizontalAlignment="Left" Margin="175,228,0,0" VerticalAlignment="Top" Foreground="LightGray" Background="#FF323232" FontWeight="Bold" Width="119" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" SnapsToDevicePixels="True"/>
-        <CheckBox x:Name="DoNotDisturb_checkBox" Content="啟用防搶話功能" Foreground="LightGray" Margin="27,266,334,37" Checked="HandleDoNotTalkCheck" Unchecked="HandleDoNotTalkUnchecked" Focusable="False" VerticalAlignment="Center" Height="28" VerticalContentAlignment="Center" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"
-            />
-        <Label x:Name="Btis_Limit_Label" Content="Cheer模式時&#xA;最小Bits數量" HorizontalAlignment="Left" Margin="10,113,0,171" Width="104" 
-            Foreground="LightGray" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontSize="14" SnapsToDevicePixels="True"/>
-        <TextBox x:Name="Btis_Limit_box" HorizontalAlignment="Left" Margin="125,122,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=Btis_Limit_slider}" Width="35"
-            Background="#FF323232" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Height="25" IsReadOnly="True" Focusable="False" BorderThickness="0" Foreground="#FFE6E6E6" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
-        <Slider x:Name="Btis_Limit_slider" HorizontalAlignment="Left" Margin="178,125,0,0" Width="280" Height="25" VerticalAlignment="Top"
-            Minimum="1" Maximum="100" Value="1" IsSnapToTickEnabled="true" TickFrequency="1" PreviewMouseLeftButtonUp="Btis_Limit_slider_change" Focusable="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" FontSize="14"/>
-        <Label x:Name="Bouyomi_setting" Content="進階設定" HorizontalAlignment="Center" Margin="11,1,0,0" VerticalAlignment="Top" Foreground="LightGray" Background="#FF323232" FontWeight="Bold" Width="88" VerticalContentAlignment="Center" FontSize="15" Height="30" HorizontalContentAlignment="Center" SnapsToDevicePixels="True"/>
-        <CheckBox x:Name="SE_Pause" Content="暫時取消音效功能" HorizontalAlignment="Left" Height="23" Margin="258,162,0,0" VerticalAlignment="Top" Width="147" Foreground="LightGray" VerticalContentAlignment="Center" Checked="SE_Pause_Check" Unchecked="SE_Pause_unCheck" BorderBrush="#FF6C6C6C" Background="#FF1D1D1D" FontSize="14" FontFamily="Microsoft JhengHei UI" SnapsToDevicePixels="True"/>
+        Title="⚙進階設定" Height="520" Width="600" Background="#FF292929" WindowTitleBrush="#FF292929" NonActiveWindowTitleBrush="#FF323232" ResizeMode="NoResize" BorderBrush="#FF004D9B" FontSize="14" TitleForeground="LightGray">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border>
+                            <Grid>
+                                <Grid>
+                                    <Border x:Name="border" 
+                                            Background="{TemplateBinding Background}"/>
+                                </Grid>
+                                <ContentPresenter ContentSource="Header"
+                                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="#5e5e5e" />
+                                <Setter Property="Foreground" Value="#cccccc"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected"
+                                     Value="True">
+                                <Setter TargetName="border"
+                                        Property="Background"
+                                        Value="#FF323232" />
+                                <Setter Property="Foreground" Value="#26bdff"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected"
+                                     Value="false">
+                                <Setter Property="Foreground" Value="#cccccc"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="{x:Null}" Margin="0,0,-6,-3">
+
+        <TabControl TabStripPlacement="Left" Background="#FF292929" Height="494" HorizontalContentAlignment="Center" Padding="0,-1,-52,2" Margin="0" 
+                    >
+            <TabItem x:Name="Tab1" Header="棒讀設定" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:BouyomiSetting Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+            <TabItem x:Name="Tab2" Header="小奇點" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:CheersControl Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+            <TabItem x:Name="Tab3" Header="動態角色" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:Live2DControl Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+            <TabItem x:Name="Tab4" Header="參數查詢" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:ParameterInquire Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+            <TabItem x:Name="Tab6" Header="額外功能" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:Experiment Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+            <TabItem x:Name="Tab8" Header="關於" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" 
+                     Background="#FF292929" FontSize="14" 
+                     Height="40" Margin="-1,-2,-54,2" >
+                <tabData:About Width="488" Height="496" Margin="-5,0,0,0"/>
+            </TabItem>
+
+
+        </TabControl>
     </Grid>
 </Controls:MetroWindow>

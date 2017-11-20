@@ -1,0 +1,68 @@
+﻿<Controls:MetroWindow
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Twitch_Bouyomi.View.AddEducation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Twitch_Bouyomi.View"
+        mc:Ignorable="d"
+        Title="➕新增詞彙教育" Height="136" Width="360"
+        GlowBrush="#FF004D9B"
+        WindowTitleBrush="#FF323232"
+        NonActiveWindowTitleBrush="#FF323232"
+        Background="#FF323232" ResizeMode="NoResize" WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterOwner">
+
+    <Window.Resources>
+        <Style x:Key="BaseButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Background" Value="#191919"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="true">
+                            <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  RecognizesAccessKey="True"
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#4d4d4d" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="Black" />
+                                <Setter Property="Foreground" Value="#292929"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Label Content="將" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,18,0,0" Width="55" FontSize="14" VerticalContentAlignment="Center" Height="32" HorizontalContentAlignment="Right" Foreground="#FFC7C7C7"/>
+        <Label Content="教育成" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="9,55,0,0" Width="55" FontSize="14" VerticalContentAlignment="Center" Height="32" HorizontalContentAlignment="Right" Foreground="#FFC7C7C7"/>
+        <TextBox x:Name="WordBefore" BorderThickness="0" HorizontalAlignment="Left" 
+            Background="Black" Padding="5,0,0,0"
+            FontSize="14"
+            Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171" Margin="65,18,0,0" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="WordAfter" BorderThickness="0" HorizontalAlignment="Left" 
+            Background="Black" Padding="5,0,0,0"
+            FontSize="14"
+            Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171" Margin="65,55,0,0" VerticalContentAlignment="Center"/>
+        <Button Style="{StaticResource BaseButtonStyle}" Content="確定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Margin="254,30,0,0" Click="AddNewEducation" FontSize="14" Height="40"/>
+
+    </Grid>
+</Controls:MetroWindow>
